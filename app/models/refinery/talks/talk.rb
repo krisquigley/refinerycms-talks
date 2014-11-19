@@ -1,10 +1,15 @@
+require 'acts_as_indexed'
+require 'globalize'
+
 module Refinery
   module Talks
     class Talk < Refinery::Core::BaseModel
+      extend FriendlyId
+
       self.table_name = 'refinery_talks'
 
-      validates :date, :teacher_id, presence: true
-      validates :title, :description, presence: true, uniqueness: true
+      validates :date, :description, :teacher_id, presence: true
+      validates :title, presence: true, uniqueness: true
 
       belongs_to :file, class_name: '::Refinery::Resource'
       belongs_to :teacher
@@ -13,6 +18,7 @@ module Refinery
       #
       acts_as_indexed fields: [:title, :description]
 
+      friendly_id :title, :use => [:slugged, :globalize]
     end
   end
 end

@@ -66,6 +66,8 @@ PATH
   specs:
     refinerycms-talks (1.0)
       acts_as_indexed (~> 0.8.0)
+      friendly_id (~> 5.0.1)
+      globalize (~> 4.0.0)
       refinerycms-core (~> 3.0.0)
 
 GEM

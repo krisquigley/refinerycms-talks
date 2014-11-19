@@ -12,7 +12,7 @@ module Refinery
       end
 
       def show
-        @talk = Talk.find(params[:id])
+        @talk = Talk.friendly.find(params[:id])
 
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @talk in the line below:
