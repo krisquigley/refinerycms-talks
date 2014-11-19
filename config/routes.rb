@@ -1,7 +1,8 @@
 Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
-  namespace :talks do
+  namespace :talks, :path => '/teachings/talks' do
+    root :to => "talks#index"
     resources :talks, :path => '', :only => [:index, :show]
   end
 
