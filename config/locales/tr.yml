@@ -1,0 +1,31 @@
+tr:
+  refinery:
+    plugins:
+      talks:
+        title: Talks
+    talks:
+      admin:
+        talks:
+          actions:
+            create_new: Yeni Ekle Talk
+            reorder: Tekrar sirala Talks
+            reorder_done: Tekrar siralama tamamlandiTalks
+          records:
+            title: Talks
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Talks yok henuz.  Tikla "Yeni Ekle Talk" eklemek senin ilk talk.
+          talk:
+            view_live_html: Bunu canlu talk goruntule <br/><em>(yeni bir pencerede acar)</em>
+            edit: Bunu Duzenle talk
+            delete: Bunu Sil talk sonsuza dek
+      talks:
+        show:
+          other: Diger Talks
+  activerecord:
+    attributes:
+      'refinery/talks/talk':
+        description: Description
+        title: Title
+        teacher: Teacher
+        date: Date
+        file: File

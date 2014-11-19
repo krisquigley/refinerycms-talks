@@ -1,0 +1,32 @@
+es:
+  refinery:
+    plugins:
+      talks:
+        title: Talks
+#        article: masculino/femenino
+    talks:
+      admin:
+        talks:
+          actions:
+            create_new: Crear nuevo talk
+            reorder: Reordenar talks
+            reorder_done: Reordenación de talks completada
+          records:
+            title: Talks
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay talks todavía. Pulsa en "Crear nuevo Talk" para crear tu primer talk.
+          talk:
+            view_live_html: Ver este talk como abierto al público <br/><em>(abre en ventana nueva)</em>
+            edit: Editar este talk
+            delete: Borrar este talk para siempre
+      talks:
+        show:
+          other: Otros talks
+  activerecord:
+    attributes:
+      'refinery/talks/talk':
+        description: Description
+        title: Title
+        teacher: Teacher
+        date: Date
+        file: File

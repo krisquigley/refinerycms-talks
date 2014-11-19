@@ -1,0 +1,55 @@
+<% content_for :body_content_title do %>
+  <%= @talk.title %>
+<% end %>
+
+<% content_for :body do %>
+  <section>
+    <h1>Description</h1>
+    <p>
+      <%=raw @talk.description %>
+    </p>
+  </section>
+  <section>
+    <h1>Title</h1>
+    <p>
+      <%=raw @talk.title %>
+    </p>
+  </section>
+  <section>
+    <h1>Teacher</h1>
+    <p>
+      <%=raw @talk.teacher.name %>
+    </p>
+  </section>
+  <section>
+    <h1>Date</h1>
+    <p>
+      <%=raw @talk.date %>
+    </p>
+  </section>
+  <section>
+    <h1>File</h1>
+    <p>
+      <% if @talk.file.present? %>
+        <%= link_to 'file', @talk.file.url %>
+      <% else %>
+        file
+      <% end %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="talks">
+      <% @talks.each do |talk| %>
+        <li>
+          <%= link_to talk.title, refinery.talks_talk_path(talk) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page' %>

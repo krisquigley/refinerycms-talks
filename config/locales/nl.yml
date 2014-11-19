@@ -1,0 +1,31 @@
+nl:
+  refinery:
+    plugins:
+      talks:
+        title: Talks
+    talks:
+      admin:
+        talks:
+          actions:
+            create_new: Nieuwe Talk toevoegen
+            reorder: De volgorde van de Talks wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Talk-volgorde
+          records:
+            title: Talks
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Talks. Druk op 'Nieuwe Talk toevoegen' om de eerste toe te voegen.
+          talk:
+            view_live_html: Deze talk op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze talk
+            delete: Deze talk definitief verwijderen
+      talks:
+        show:
+          other: Andere Talks
+  activerecord:
+    attributes:
+      'refinery/talks/talk':
+        description: Description
+        title: Title
+        teacher: Teacher
+        date: Date
+        file: File

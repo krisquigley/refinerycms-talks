@@ -1,0 +1,31 @@
+nb:
+  refinery:
+    plugins:
+      talks:
+        title: Talks
+    talks:
+      admin:
+        talks:
+          actions:
+            create_new: Lag en ny Talk
+            reorder: Endre rekkefølgen på Talks
+            reorder_done: Ferdig å endre rekkefølgen Talks
+          records:
+            title: Talks
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Talks enda. Klikk på "Lag en ny Talk" for å legge til din første talk.
+          talk:
+            view_live_html: Vis hvordan denne talk ser ut offentlig <br/><em>(åpner i et nytt vindu)</em>
+            edit: Rediger denne talk
+            delete: Fjern denne talk permanent
+      talks:
+        show:
+          other: Andre Talks
+  activerecord:
+    attributes:
+      'refinery/talks/talk':
+        description: Description
+        title: Title
+        teacher: Teacher
+        date: Date
+        file: File

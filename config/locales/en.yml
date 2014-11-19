@@ -1,0 +1,31 @@
+en:
+  refinery:
+    plugins:
+      talks:
+        title: Talks
+    talks:
+      admin:
+        talks:
+          actions:
+            create_new: Add New Talk
+            reorder: Reorder Talks
+            reorder_done: Done Reordering Talks
+          records:
+            title: Talks
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Talks yet. Click "Add New Talk" to add your first talk.
+          talk:
+            view_live_html: View this talk live <br/><em>(opens in a new window)</em>
+            edit: Edit this talk
+            delete: Remove this talk forever
+      talks:
+        show:
+          other: Other Talks
+  activerecord:
+    attributes:
+      'refinery/talks/talk':
+        description: Description
+        title: Title
+        teacher: Teacher
+        date: Date
+        file: File

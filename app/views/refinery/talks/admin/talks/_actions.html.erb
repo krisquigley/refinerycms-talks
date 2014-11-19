@@ -1,0 +1,33 @@
+<ul>
+  <% if ::Refinery::Talks::Admin::TalksController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.talks_admin_talks_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('.create_new'), refinery.new_talks_admin_talk_path,
+                 :class => "add_icon" %>
+  </li>
+   <li>
+     <%= link_to 'Add New Teacher', refinery.new_talks_admin_teacher_path,
+    :class => 'add_icon' %>
+  </li>
+   <li>
+     <%= link_to 'Manage Teachers', refinery.talks_admin_teachers_path,
+     :class => 'edit_icon' %>
+    </li>
+<% if !searching? && ::Refinery::Talks::Admin::TalksController.sortable? && ::Refinery::Talks::Talk.many? %>
+  <li>
+    <%= link_to t('.reorder', :what => "Talks"),
+                 refinery.talks_admin_talks_path,
+                 :id => "reorder_action",
+                 :class => "reorder_icon" %>
+
+    <%= link_to t('.reorder_done', :what => "Talks"),
+                 refinery.talks_admin_talks_path,
+                 :id => "reorder_action_done",
+                 :style => "display: none;",
+                 :class => "reorder_icon" %>
+  </li>
+<% end %>
+</ul>

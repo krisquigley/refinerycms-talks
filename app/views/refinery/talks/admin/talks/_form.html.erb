@@ -1,0 +1,48 @@
+<%= form_for [refinery, :talks_admin, @talk] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @talk,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :teacher_id -%>
+    <%= f.select :teacher_id, options_from_collection_for_select(Refinery::Talks::Teacher.all, :id, :name, @talk.teacher_id) %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :date -%>
+    <%= f.datetime_select :date -%>
+  </div>
+
+  <div class='field'>
+    <%= f.label :file -%>
+    <%= render '/refinery/admin/resource_picker',
+               :f => f,
+               :field => :file_id,
+               :resource => @talk.file -%>
+  </div>
+
+  <div class='field'>
+    <%= render '/refinery/admin/wysiwyg',
+                :f => f,
+                :fields => [:description],
+                :object => "talks/talk" -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.talks.admin.talks.talk'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @talk.title) -%>
+<% end -%>
+
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+    });
+  </script>
+<% end -%>

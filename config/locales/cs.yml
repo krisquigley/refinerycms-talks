@@ -1,0 +1,31 @@
+cs:
+  refinery:
+    plugins:
+      talks:
+        title: Talks
+    talks:
+      admin:
+        talks:
+          actions:
+            create_new: Přidat Talk
+            reorder: Řadit Talks
+            reorder_done: Konec řazení Talks
+          records:
+            title: Talks
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Talks. Zvolte "Přidat Talk" pro přidání prvního talk.
+          talk:
+            view_live_html: Zobrazit náhled talk<br/><em>(otevře se v novém okně)</em>
+            edit: Upravit talk
+            delete: Smazat talk
+      talks:
+        show:
+          other: Další Talks
+  activerecord:
+    attributes:
+      'refinery/talks/talk':
+        description: Description
+        title: Title
+        teacher: Teacher
+        date: Date
+        file: File

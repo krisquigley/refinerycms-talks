@@ -1,0 +1,21 @@
+<section id='records'>
+  <% if @teachers.any? %>
+    <%= will_paginate @teachers %>
+    <%= render "sortable_list" %>
+    <%= will_paginate @teachers %>
+  <% else %>
+    <p>
+      <strong>
+        No Items yet
+      </strong>
+      </p>
+  <% end %>
+</section>
+  <aside id='actions'>
+    <ul>
+      <li>
+        <%= link_to 'Add New Teacher', refinery.new_talks_admin_teacher_path,
+       :class => 'add_icon' %>
+     </li>
+    </ul>
+  </aside>

@@ -1,0 +1,31 @@
+fr:
+  refinery:
+    plugins:
+      talks:
+        title: Talks
+    talks:
+      admin:
+        talks:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Talk
+            reorder: Réordonner les Talks
+            reorder_done: Fin de réordonnancement des Talks
+          records:
+            title: Talks
+            sorry_no_results: "Désolé ! Aucun résultat."
+            no_items_yet: 'Il n''y a actuellement aucun(e) Talk. Cliquer sur "Créer un(e) nouve(au/l/lle) Talk" pour créer votre premi(er/ère) talk.'
+          talk:
+            view_live_html: Voir ce(t/tte) talk <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) talk
+            delete: Supprimer définitivement ce(t/tte) talk
+      talks:
+        show:
+          other: Autres Talks
+  activerecord:
+    attributes:
+      'refinery/talks/talk':
+        description: Description
+        title: Title
+        teacher: Teacher
+        date: Date
+        file: File

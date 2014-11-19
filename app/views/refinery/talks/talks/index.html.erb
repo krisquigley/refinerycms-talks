@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="talks">
+    <% @talks.each do |talk| %>
+      <li>
+        <%= link_to talk.title, refinery.talks_talk_path(talk) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>
