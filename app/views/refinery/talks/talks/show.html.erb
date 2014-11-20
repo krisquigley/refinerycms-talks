@@ -31,6 +31,10 @@
     <h1>File</h1>
     <p>
       <% if @talk.file.present? %>
+        <audio controls>
+          <source src="<%= @talk.file.url %>" type="audio/mpeg">
+              Your browser does not support the audio element.
+        </audio>
         <%= link_to 'file', @talk.file.url %>
       <% else %>
         file

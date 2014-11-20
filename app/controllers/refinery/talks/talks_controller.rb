@@ -8,7 +8,6 @@ module Refinery
       def index
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @talk in the line below:
-        present(@page)
       end
 
       def show
@@ -16,7 +15,11 @@ module Refinery
 
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @talk in the line below:
-        present(@page)
+
+        respond_to do |format|
+          format.html { present(@page) }
+          format.mp3 { redirect_to @talk.file.url }
+        end
       end
 
     protected
