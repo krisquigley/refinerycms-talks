@@ -8,7 +8,7 @@ module Refinery
 
       self.table_name = 'refinery_talks'
 
-      validates :date, :description, :teacher_id, :file_id, presence: true
+      validates :date, :description, :teacher_id, :file_id, :talk_length, presence: true
       validates :title, presence: true, uniqueness: true
 
       belongs_to :file, class_name: '::Refinery::Resource'

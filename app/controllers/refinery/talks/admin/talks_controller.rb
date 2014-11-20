@@ -32,7 +32,7 @@ module Refinery
 
         def talk_params
            params.require(:talk).permit(
-              :title, :description, :teacher_id, :date, :file_id)
+              :title, :description, :teacher_id, :talk_length, :date, :file_id)
         end
       end
     end

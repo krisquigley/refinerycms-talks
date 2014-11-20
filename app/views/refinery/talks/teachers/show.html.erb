@@ -21,16 +21,18 @@
 <% end %>
 <%= render '/refinery/shared/second_navigation' %>
 <div class="col-xs-12 col-sm-6 col-md-6 content__content">
-  <h2><%= @talk.title %></h2>
+  <h2><%= @teacher.name %></h2>
   <hr/>
-  <p><i>by <%= @talk.teacher.name %> on <%= l(@talk.date.to_date, :format => :long) %></i></p>
-  <p>
-    <audio controls>
-      <source src="<%= @talk.file.url %>" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio><br/>
-      <%= link_to 'Download Talk', @talk.file.url %>
+  <% @talks.each do |talk| %>
+  <section>
+    <p>
+      <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>
     </p>
-  <%=raw @talk.description %>
+    <p>
+      <%= talk.talk_length %> minutes, by <%= talk.teacher.name %> on <%= l(talk.date.to_date, :format => :long) %>
+    </p>
+  </section>
+  <hr class="blog__rule">
+  <% end %>
 </div>
 </div>

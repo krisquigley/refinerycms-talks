@@ -1,11 +1,45 @@
-<% content_for :body do %>
-  <ul id="talks">
-    <% @talks.each do |talk| %>
-      <li>
-        <%= link_to talk.title, refinery.talks_talk_path(talk) %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="row">
+  <div class="col-xs-12 site__hero">
+  </div>
+</div>
+<% if @page.background_image.present? %>
+<style type="text/css">
+.site__hero {
+  background: lightgrey url(<%= @page.background_image.url -%>) no-repeat top center;
+  background-size: cover;
+}
+</style>
+<% else %>
+<style type="text/css">
+.site__hero {
 
-<%= render '/refinery/content_page' %>
+  background: lightgrey;
+  background-size: cover;
+
+}
+</style>
+<% end %>
+<%= render '/refinery/shared/second_navigation' %>
+<div class="col-xs-12 col-sm-6 col-md-6 content__content">
+  <h2><%= page_title %></h2>
+  <hr/>
+  <%= raw(@page.content_for(:body)) %>
+  <h3>teachers</h3>
+  <% @teachers.each do |teacher| %>
+    <p><%= link_to teacher.name, refinery.talks_teacher_path(teacher) %></p>
+  <% end %>
+  <h3>recent talks</h3>
+  <% @talks.each do |talk| %>
+    <section>
+    <p>
+      <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>
+    </p>
+    <p>
+
+      <%= talk.talk_length %> minutes, by <%= talk.teacher.name %> on <%= l(talk.date.to_date, :format => :long) %>
+    </p>
+    </section>
+    <hr class="blog__rule">
+  <% end %>
+</div>
+</div>

@@ -3,7 +3,11 @@ Refinery::Core::Engine.routes.draw do
   # Frontend routes
   namespace :talks, :path => '/teachings/talks' do
     root :to => "talks#index"
-    resources :talks, :path => '', :only => [:index, :show]
+    resources :talks, :path => '', :only => [:index, :show] do
+      collection do
+        resources :teachers, :only => :show
+      end
+    end
   end
 
   # Admin routes

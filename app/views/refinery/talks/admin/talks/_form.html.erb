@@ -5,7 +5,7 @@
 
   <div class='field'>
     <%= f.label :title -%>
-    <%= f.text_field :title -%>
+    <%= f.text_field :title, :required => true -%>
   </div>
 
   <div class='field'>
@@ -15,7 +15,7 @@
 
   <div class='field'>
     <%= f.label :date -%>
-    <%= f.date_select :date -%>
+    <%= f.date_select :date, :required => true -%>
   </div>
 
   <div class='field'>
@@ -24,6 +24,11 @@
                :f => f,
                :field => :file_id,
                :resource => @talk.file -%>
+  </div>
+
+  <div class="field">
+    <%= f.label :talk_length %>
+    <%= f.text_field :talk_length, :required => true %> minutes
   </div>
 
   <div class='field'>

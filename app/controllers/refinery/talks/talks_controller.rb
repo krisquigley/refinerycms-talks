@@ -3,6 +3,7 @@ module Refinery
     class TalksController < ::ApplicationController
 
       before_action :find_all_talks
+      before_action :find_all_teachers, only: :index
       before_action :find_page
 
       def index
@@ -26,6 +27,10 @@ module Refinery
 
       def find_all_talks
         @talks = Talk.order('position ASC')
+      end
+
+      def find_all_teachers
+        @teachers = Teacher.friendly.order('name ASC')
       end
 
       def find_page
