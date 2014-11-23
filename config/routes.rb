@@ -18,8 +18,9 @@ Refinery::Core::Engine.routes.draw do
           post :update_positions
         end
       end
-      resources :teachers, :except => :show
+      resources :teachers, :except => :show do
+        post :update_positions, on: :collection
+      end
     end
   end
-
 end

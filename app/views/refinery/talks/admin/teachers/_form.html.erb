@@ -8,6 +8,10 @@
     <%= f.label :name -%>
     <%= f.text_field :name, :class => 'larger widest' -%>
   </div>
+  <div class='field'>
+    <%= f.label :guest, 'Guest Teacher' -%>
+    <%= f.check_box :guest -%>
+  </div>
   <%= render "/refinery/admin/form_actions",
     :f => f,
     :continue_editing => false,

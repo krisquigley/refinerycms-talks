@@ -28,6 +28,12 @@
   <% @teachers.each do |teacher| %>
     <p><%= link_to teacher.name, refinery.talks_teacher_path(teacher) %></p>
   <% end %>
+  <% if @guest_teachers.any? %>
+    <h3>guest teachers</h3>
+    <% @guest_teachers.each do |teacher| %>
+    <p><%= link_to teacher.name, refinery.talks_teacher_path(teacher) %></p>
+    <% end %>
+  <% end %>
   <h3>recent talks</h3>
   <% @talks.each do |talk| %>
     <section>

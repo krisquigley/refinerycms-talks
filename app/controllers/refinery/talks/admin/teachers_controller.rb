@@ -9,8 +9,7 @@ module Refinery
         private
 
         def teacher_params
-           params.require(:teacher).permit(
-              :name)
+           params.require(:teacher).permit(:name, :guest)
         end
       end
     end

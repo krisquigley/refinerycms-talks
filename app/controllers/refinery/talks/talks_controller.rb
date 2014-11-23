@@ -30,7 +30,8 @@ module Refinery
       end
 
       def find_all_teachers
-        @teachers = Teacher.friendly.order('name ASC')
+        @teachers = Teacher.friendly.where(guest: false).order('position ASC')
+        @guest_teachers = Teacher.friendly.where(guest: true).order('position ASC')
       end
 
       def find_page
