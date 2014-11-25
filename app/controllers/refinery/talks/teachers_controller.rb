@@ -6,7 +6,7 @@ module Refinery
 
       def show
         @teacher = Teacher.friendly.find(params[:id])
-        @talks = Talk.where(teacher_id: @teacher.id).order('date ASC')
+        @talks = Talk.where(teacher_id: @teacher.id).order('date DESC')
       end
 
       protected

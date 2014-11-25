@@ -26,7 +26,7 @@ module Refinery
     protected
 
       def find_all_talks
-        @talks = Talk.order('date ASC')
+        @talks = Talk.order('date DESC')
       end
 
       def find_all_teachers
