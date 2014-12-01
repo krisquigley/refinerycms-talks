@@ -26,7 +26,8 @@ module Refinery
     protected
 
       def find_all_talks
-        @talks = Talk.order('date DESC')
+        @talks = Talk.order('date DESC').paginate :page => params[:page],
+        :per_page => 10
       end
 
       def find_all_teachers
