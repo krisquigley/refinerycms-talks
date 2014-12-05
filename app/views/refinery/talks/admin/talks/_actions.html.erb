@@ -16,6 +16,14 @@
      <%= link_to 'Manage Teachers', refinery.talks_admin_teachers_path,
      :class => 'edit_icon' %>
     </li>
+    <li>
+      <%= link_to 'Add New Compilation', refinery.new_talks_admin_compilation_path,
+      :class => 'add_icon' %>
+    </li>
+    <li>
+      <%= link_to 'Manage Compilations', refinery.talks_admin_compilations_path,
+      :class => 'edit_icon' %>
+    </li>
 <% if !searching? && ::Refinery::Talks::Admin::TalksController.sortable? && ::Refinery::Talks::Talk.many? %>
   <li>
     <%= link_to t('.reorder', :what => "Talks"),

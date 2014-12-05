@@ -21,26 +21,21 @@
 <% end %>
 <%= render '/refinery/shared/second_navigation' %>
 <div class="col-xs-12 col-sm-6 col-md-6 content__content">
-  <h2><%= @teacher.name %></h2>
+  <h2><%= @compilation.title %></h2>
   <hr/>
-  <h3>recent talks</h3>
-  <% @talks.each do |talk| %>
+  <i>by <%= @compilation.teacher.name %></i>
+  <h3>talks</h3>
+  <% @compilation.talks.each do |talk| %>
   <section>
     <p>
       <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>
     </p>
     <p>
+
       <%= talk.talk_length %> minutes, by <%= talk.teacher.name %> on <%= l(talk.date.to_date, :format => :long) %>
     </p>
   </section>
   <hr class="blog__rule">
-  <% end %>
-  <%= will_paginate @talks %>
-  <% if @teacher.compilations.any? %>
-    <h3>compilations</h3>
-    <% @teacher.compilations.each do |compilation| %>
-      <p><%= link_to compilation.title, refinery.talks_compilation_path(compilation)  %></p>
-    <% end %>
   <% end %>
 </div>
 </div>

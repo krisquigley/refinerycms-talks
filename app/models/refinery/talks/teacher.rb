@@ -10,6 +10,7 @@ module Refinery
       validates :name, presence: true, uniqueness: true
 
       has_many :talks
+      has_many :compilations
 
       friendly_id :name, :use => [:slugged, :globalize]
     end

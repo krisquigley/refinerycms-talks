@@ -6,14 +6,16 @@ module Refinery
       class TalksController < ::Refinery::AdminController
         after_action :write_id3_tags, only: [:create, :update]
 
+        before_action :compilations, only: [:new, :create, :edit, :update]
+
+        before_action :check_compilation_ids, :only => :update
+
         crudify :'refinery/talks/talk',
                 :title_attribute => 'title'
 
         private
 
         def write_id3_tags
-          Rails.logger.debug talk_params[:date]
-
           mp3_file = Rails.root.join("public/system/refinery/resources/#{Refinery::Resource.find(talk_params[:file_id]).file_uid}").to_s
 
           TagLib::MPEG::File.open(mp3_file) do |file|
@@ -32,7 +34,16 @@ module Refinery
 
         def talk_params
            params.require(:talk).permit(
-              :title, :description, :teacher_id, :talk_length, :date, :file_id)
+              :title, :description, :teacher_id, :talk_length, :date, :file_id, :compilation_ids => [])
+        end
+
+        def compilations
+          @compilations = Refinery::Talks::Compilation.all
+          @talk = Talk.friendly.find(params[:id])
+        end
+
+        def check_compilation_ids
+          talk_params[:compilation_ids] ||= []
         end
       end
     end

@@ -7,7 +7,7 @@ module Refinery
       def show
         @teacher = Teacher.friendly.find(params[:id])
         @talks = Talk.where(teacher_id: @teacher.id).order('date DESC').paginate :page => params[:page],
-        :per_page => 10
+        :per_page => 5
       end
 
       protected

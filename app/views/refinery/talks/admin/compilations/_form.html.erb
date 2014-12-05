@@ -1,0 +1,19 @@
+<%= form_for [refinery, :talks_admin, @compilation] do |f| -%>
+  <%= render "/refinery/admin/error_messages",
+    :object => f.object,
+    :include_object_name => true %>
+  <%= render '/refinery/admin/locale_picker',
+    :current_locale => Globalize.locale %>
+  <div class='field'>
+    <%= f.label :title -%>
+    <%= f.text_field :title, :class => 'larger widest' -%>
+  </div>
+  <div class='field'>
+    <%= f.label :teacher_id -%>
+    <%= f.select :teacher_id, options_from_collection_for_select(Refinery::Talks::Teacher.all, :id, :name, @compilation.teacher_id) %>
+  </div>
+  <%= render "/refinery/admin/form_actions",
+    :f => f,
+    :continue_editing => false,
+    :delete_compilation => t('delete', :scope => 'refinery.compilation.admin') %>
+<% end %>

@@ -6,6 +6,7 @@ Refinery::Core::Engine.routes.draw do
     resources :talks, :path => '', :only => [:index, :show] do
       collection do
         resources :teachers, :only => :show
+        resources :compilations, :only => :show
       end
     end
   end
@@ -19,6 +20,9 @@ Refinery::Core::Engine.routes.draw do
         end
       end
       resources :teachers, :except => :show do
+        post :update_positions, on: :collection
+      end
+      resources :compilations, :except => :show do
         post :update_positions, on: :collection
       end
     end
