@@ -39,7 +39,6 @@ module Refinery
 
         def compilations
           @compilations = Refinery::Talks::Compilation.all
-          @talk = Talk.friendly.find(params[:id])
         end
 
         def check_compilation_ids
