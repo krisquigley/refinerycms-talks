@@ -6,7 +6,7 @@ module Refinery
 
       def show
         @compilation = Compilation.friendly.find(params[:id])
-        @talks = @compilation.talks.order('date DESC').paginate :page => params[:page],
+        @talks = @compilation.talks.order('date ASC').paginate :page => params[:page],
         :per_page => 10
       end
 
