@@ -25,7 +25,7 @@
   <hr/>
   <i>by <%= @compilation.teacher.name %></i>
   <h3>talks</h3>
-  <% @compilation.talks.each do |talk| %>
+  <% @talks.each do |talk| %>
   <section>
     <p>
       <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>

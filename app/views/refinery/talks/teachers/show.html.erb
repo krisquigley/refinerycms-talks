@@ -36,9 +36,9 @@
   <hr class="blog__rule">
   <% end %>
   <%= will_paginate @talks %>
-  <% if @teacher.compilations.any? %>
+  <% if @compilations.any? %>
     <h3>compilations</h3>
-    <% @teacher.compilations.each do |compilation| %>
+    <% @compilations.each do |compilation| %>
       <p><%= link_to compilation.title, refinery.talks_compilation_path(compilation)  %></p>
     <% end %>
   <% end %>
