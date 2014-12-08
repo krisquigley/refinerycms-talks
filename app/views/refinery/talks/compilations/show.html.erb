@@ -2,23 +2,7 @@
   <div class="col-xs-12 site__hero">
   </div>
 </div>
-<% if @page.background_image.present? %>
-<style type="text/css">
-.site__hero {
-  background: lightgrey url(<%= @page.background_image.url -%>) no-repeat top center;
-  background-size: cover;
-}
-</style>
-<% else %>
-<style type="text/css">
-.site__hero {
-
-  background: lightgrey;
-  background-size: cover;
-
-}
-</style>
-<% end %>
+<%= render '/refinery/shared/site_hero', object: @page %>
 <%= render '/refinery/shared/second_navigation' %>
 <div class="col-xs-12 col-sm-6 col-md-6 content__content">
   <h2><%= @compilation.title %></h2>
