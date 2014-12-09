@@ -24,18 +24,4 @@
       <%= link_to 'Manage Compilations', refinery.talks_admin_compilations_path,
       :class => 'edit_icon' %>
     </li>
-<% if !searching? && ::Refinery::Talks::Admin::TalksController.sortable? && ::Refinery::Talks::Talk.many? %>
-  <li>
-    <%= link_to t('.reorder', :what => "Talks"),
-                 refinery.talks_admin_talks_path,
-                 :id => "reorder_action",
-                 :class => "reorder_icon" %>
-
-    <%= link_to t('.reorder_done', :what => "Talks"),
-                 refinery.talks_admin_talks_path,
-                 :id => "reorder_action_done",
-                 :style => "display: none;",
-                 :class => "reorder_icon" %>
-  </li>
-<% end %>
 </ul>

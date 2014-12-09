@@ -1,4 +1,3 @@
-<%= render "/refinery/admin/make_sortable" %>
 <section id='records'>
   <% if @compilations.any? %>
     <%= will_paginate @compilations %>
@@ -18,13 +17,5 @@
         <%= link_to 'Add New Compilation', refinery.new_talks_admin_compilation_path,
        :class => 'add_icon' %>
      </li>
-     <li>
-       <%= link_to 'Reorder Compilations', refinery.talks_admin_compilations_path,
-        :id => "reorder_action", :class => "reorder_icon" %>
-       <%= link_to 'Done Reordering',
-        refinery.talks_admin_compilations_path, :id => "reorder_action_done",
-        :style => "display: none;",
-        :class => "reorder_icon" %>
-      </li>
     </ul>
   </aside>

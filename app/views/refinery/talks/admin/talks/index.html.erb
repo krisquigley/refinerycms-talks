@@ -4,4 +4,3 @@
 <aside id='actions'>
   <%= render 'actions' %>
 </aside>
-<%= render '/refinery/admin/make_sortable', options: {tree: false} if !searching? and ::Refinery::Talks::Admin::TalksController.sortable? and ::Refinery::Talks::Talk.many? %>
