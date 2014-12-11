@@ -9,12 +9,15 @@
   <hr/>
   <p><i>by <%= @talk.teacher.name %> on <%= l(@talk.date.to_date, :format => :long) %></i></p>
   <p>
-    <audio controls>
-      <source src="<%= @talk.file.url %>" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio><br/>
-      <%= link_to 'Download Talk', @talk.file.url %>
+    <% if extension(@talk.file.file_uid) == '.mp3' %>
+      <audio controls>
+        <source src="<%= @talk.file.url %>" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio><br/>
+    <% end %>
+    <%= link_to 'Download Talk', @talk.file.url %>
     </p>
+
   <%=raw @talk.description %>
 </div>
 </div>

@@ -1,5 +1,3 @@
-require 'taglib'
-
 module Refinery
   module Talks
     module Admin
@@ -16,20 +14,10 @@ module Refinery
         private
 
         def write_id3_tags
-          mp3_file = Rails.root.join("public/system/refinery/resources/#{Refinery::Resource.find(talk_params[:file_id]).file_uid}").to_s
-
-          TagLib::MPEG::File.open(mp3_file) do |file|
-            tag = file.id3v2_tag
-
-            # Write basic attributes
-            tag.artist = Refinery::Talks::Teacher.find(talk_params[:teacher_id]).name
-            tag.title = talk_params[:title]
-            tag.album = "Volume #{talk_params['date(1i)'].to_s[2..3]}"
-            tag.comment = ActionController::Base.helpers.strip_tags(talk_params[:description])
-            tag.genre = "Other"
-
-            file.save
-          end
+          WriteId3TagsJob.perform_async(talk_params[:file_id], {'teacher' => talk_params[:teacher_id],
+                                                                'title' => talk_params[:title],
+                                                                'description' => talk_params[:description],
+                                                                'date' => talk_params['date(1i)'].to_s[2..3]})
         end
 
         def talk_params
