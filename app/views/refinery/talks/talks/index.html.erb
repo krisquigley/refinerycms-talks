@@ -8,17 +8,24 @@
   <h2><%= page_title %></h2>
   <hr/>
   <%= raw(@page.content_for(:body)) %>
-  <h3>teachers</h3>
-  <% @teachers.each do |teacher| %>
-    <p><%= link_to teacher.name, refinery.talks_teacher_path(teacher) %></p>
-  <% end %>
-  <% if @guest_teachers.any? %>
-    <h3>guest teachers</h3>
-    <% @guest_teachers.each do |teacher| %>
-    <p><%= link_to teacher.name, refinery.talks_teacher_path(teacher) %></p>
+  <div class="col-xs-12 col-md-6">
+    <h3>teachers</h3>
+    <hr/>
+    <% @teachers.each do |teacher| %>
+      <p><%= link_to teacher.name, refinery.talks_teacher_path(teacher) %></p>
     <% end %>
-  <% end %>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <% if @guest_teachers.any? %>
+      <h3>guest teachers</h3>
+      <hr/>
+      <% @guest_teachers.each do |teacher| %>
+      <p><%= link_to teacher.name, refinery.talks_teacher_path(teacher) %></p>
+      <% end %>
+    <% end %>
+  </div>
   <h3>recent talks</h3>
+  <hr/>
   <% @talks.each do |talk| %>
     <section>
     <p>

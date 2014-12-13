@@ -5,9 +5,8 @@
 <%= render '/refinery/shared/site_hero', object: @page %>
 <%= render '/refinery/shared/second_navigation' %>
 <div class="col-xs-12 col-sm-6 col-md-6 content__content">
-  <h2><%= @teacher.name %></h2>
+  <h2>recent talks by <%= @teacher.name %></h2>
   <hr/>
-  <h3>recent talks</h3>
   <% @talks.each do |talk| %>
   <section>
     <p>
@@ -22,6 +21,7 @@
   <%= will_paginate @talks %>
   <% if @compilations.any? %>
     <h3>compilations</h3>
+    <hr/>
     <% @compilations.each do |compilation| %>
       <p><%= link_to compilation.title, refinery.talks_compilation_path(compilation)  %></p>
     <% end %>
