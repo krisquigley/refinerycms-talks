@@ -7,8 +7,7 @@
 <div class="col-xs-12 col-sm-6 col-md-6 content__content">
   <h2><%= @compilation.title %></h2>
   <hr/>
-  <i>by <%= @compilation.teacher.name %></i>
-  <h3>talks</h3>
+  <p class="teacher"><i>by <%= @compilation.teacher.name %></i></p>
   <% @talks.each do |talk| %>
   <section>
     <p>

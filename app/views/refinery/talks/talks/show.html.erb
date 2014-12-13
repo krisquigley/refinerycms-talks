@@ -7,9 +7,9 @@
 <div class="col-xs-12 col-sm-6 col-md-6 content__content">
   <h2><%= @talk.title %></h2>
   <hr/>
-  <p><i>by <%= @talk.teacher.name %> on <%= l(@talk.date.to_date, :format => :long) %></i></p>
+  <p class="teacher"><i>by <%= @talk.teacher.name %> on <%= l(@talk.date.to_date, :format => :long) %></i></p>
   <p>
-    <% if extension(@talk.file.file_uid) == '.mp3' %>
+    <% if extension(@talk.file.file_uid).downcase == '.mp3' %>
       <audio controls>
         <source src="<%= @talk.file.url %>" type="audio/mpeg">
         Your browser does not support the audio element.

@@ -5,8 +5,9 @@
 <%= render '/refinery/shared/site_hero', object: @page %>
 <%= render '/refinery/shared/second_navigation' %>
 <div class="col-xs-12 col-sm-6 col-md-6 content__content">
-  <h2>recent talks by <%= @teacher.name %></h2>
+  <h2>talks</h2>
   <hr/>
+  <p class="teacher"><i>by <%= @teacher.name %></i></p>
   <% @talks.each do |talk| %>
   <section>
     <p>
