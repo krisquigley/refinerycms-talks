@@ -23,7 +23,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
     xml.itunes :block, 'no'
     xml.itunes :category, :text => 'Religion &amp; Spirituality'
 
-    @talks.each do  |talk|
+    itunes_talks.each do  |talk|
       xml.item do
         link = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}"
         mp3_url = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}.mp3"
