@@ -27,7 +27,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
       xml.item do
         link = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}"
         mp3_url = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}.mp3"
-        xml.title talk.title
+        xml.title "#{talk.teacher.name} - #{talk.title}"
         xml.description talk.description
         xml.pubDate talk.date.to_s(:rfc822)
         xml.enclosure :url => mp3_url, :type => 'audio/mpeg'
@@ -37,7 +37,12 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
         xml.itunes :subtitle, truncate(talk.description, :length => 150)
         xml.itunes :summary, talk.description
         xml.itunes :explicit, 'no'
-        #xml.itunes :duration, talk.duration
+        
+        seconds = talk.talk_length % 60
+        minutes = (talk.talk_length / 60) % 60
+        duration = format("%02d:%02d", minutes, seconds)
+
+        xml.itunes :duration, duration
       end
     end
   end
