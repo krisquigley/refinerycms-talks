@@ -19,5 +19,9 @@
     </p>
 
   <%=raw @talk.description %>
+
+  <p>
+    <%= render partial: '/shared/share_button', locals: {namespace: :talks, object: @talk} %>
+  </p>
 </div>
 </div>
