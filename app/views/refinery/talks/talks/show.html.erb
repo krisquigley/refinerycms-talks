@@ -20,8 +20,6 @@
 
   <%=raw @talk.description %>
 
-  <p>
-    <%= render partial: '/shared/share_button', locals: {namespace: :talks, object: @talk} %>
-  </p>
+  <%= render partial: '/shared/share_button', locals: {namespace: :talks, object: @talk} %>
 </div>
 </div>
