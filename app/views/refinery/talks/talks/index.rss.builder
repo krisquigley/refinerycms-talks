@@ -24,25 +24,27 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
     xml.itunes :category, :text => 'Religion &amp; Spirituality'
 
     itunes_talks.each do  |talk|
-      xml.item do
-        link = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}"
-        mp3_url = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}.mp3"
-        xml.title "#{talk.teacher.name} - #{talk.title}"
-        xml.description talk.description
-        xml.pubDate talk.date.to_s(:rfc822)
-        xml.enclosure :url => mp3_url, :type => 'audio/mpeg'
-        xml.link link
-        xml.guid({:isPermaLink => "true"}, link)
-        xml.itunes :author, talk.teacher.name
-        xml.itunes :subtitle, truncate(talk.description, :length => 150)
-        xml.itunes :summary, talk.description
-        xml.itunes :explicit, 'no'
-        
-        seconds = talk.talk_length % 60
-        minutes = (talk.talk_length / 60) % 60
-        duration = format("%02d:%02d", minutes, seconds)
+      if File.extname(talk.file.file_uid).downcase == '.mp3'
+        xml.item do
+          link = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}"
+          mp3_url = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}.mp3"
+          xml.title "#{talk.teacher.name} - #{talk.title}"
+          xml.description talk.description
+          xml.pubDate talk.date.to_s(:rfc822)
+          xml.enclosure :url => mp3_url, :type => 'audio/mpeg'
+          xml.link link
+          xml.guid({:isPermaLink => "true"}, link)
+          xml.itunes :author, talk.teacher.name
+          xml.itunes :subtitle, truncate(talk.description, :length => 150)
+          xml.itunes :summary, talk.description
+          xml.itunes :explicit, 'no'
+          
+          seconds = talk.talk_length % 60
+          minutes = (talk.talk_length / 60) % 60
+          duration = format("%02d:%02d", minutes, seconds)
 
-        xml.itunes :duration, duration
+          xml.itunes :duration, duration
+        end
       end
     end
   end

@@ -8,17 +8,7 @@
   <h2>talks</h2>
   <hr/>
   <p class="teacher"><i>by <%= @teacher.name %></i></p>
-  <% @talks.each do |talk| %>
-  <section>
-    <p>
-      <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>
-    </p>
-    <p>
-      <%= talk.talk_length %> minutes, by <%= talk.teacher.name %> on <%= l(talk.date.to_date, :format => :long) %>
-    </p>
-  </section>
-  <hr class="blog__rule">
-  <% end %>
+  <%= render partial: 'refinery/talks/shared/talk', collection: @talks %>
   <%= will_paginate @talks %>
   <% if @compilations.any? %>
     <h3>compilations</h3>

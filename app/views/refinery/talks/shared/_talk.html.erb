@@ -1,0 +1,12 @@
+<% if show_mp3s(talk) %>
+  <section>
+    <p>
+      <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>
+    </p>
+    <p>
+
+      <%= talk.talk_length %> minutes, by <%= talk.teacher.name %> on <%= l(talk.date.to_date, :format => :long) %>
+    </p>
+  </section>
+  <hr class="blog__rule">
+<% end %>

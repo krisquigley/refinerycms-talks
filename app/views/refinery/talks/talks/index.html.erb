@@ -28,18 +28,7 @@
 </div>
   <h3>recent talks</h3>
   <hr/>
-  <% @talks.each do |talk| %>
-    <section>
-    <p>
-      <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>
-    </p>
-    <p>
-
-      <%= talk.talk_length %> minutes, by <%= talk.teacher.name %> on <%= l(talk.date.to_date, :format => :long) %>
-    </p>
-    </section>
-    <hr class="blog__rule">
-  <% end %>
+  <%= render partial: 'refinery/talks/shared/talk', collection: @talks %>
   <%= will_paginate @talks %>
 </div>
 </div>
