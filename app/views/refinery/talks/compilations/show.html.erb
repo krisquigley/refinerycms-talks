@@ -8,17 +8,15 @@
   <h2><%= @compilation.title %></h2>
   <hr/>
   <p class="teacher"><i>by <%= @compilation.teacher.name %></i></p>
-  <% @talks.each do |talk| %>
-    <% if show_zip(talk) %>
-      <div class="sticky-post compilation">
-         <p>
-          <strong><%= link_to talk.title, refinery.talks_talk_path(talk) %></strong>
-        </p>
-        <p>
-          <%= raw(talk.description) %>
-        </p>
-      </div>
-    <% end %>
+  <% if @zip %>
+    <div class="sticky-post compilation">
+       <p>
+        <strong><%= link_to @zip.title, refinery.talks_talk_path(@zip) %></strong>
+      </p>
+      <p>
+        <%= raw(@zip.description) %>
+      </p>
+    </div>
   <% end %>
   <%= render partial: 'refinery/talks/shared/talk', collection: @talks %>
   <%= will_paginate @talks %>
