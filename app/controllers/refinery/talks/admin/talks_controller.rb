@@ -9,7 +9,9 @@ module Refinery
         before_action :check_compilation_ids, :only => :update
 
         crudify :'refinery/talks/talk',
-                :title_attribute => 'title'
+                :title_attribute => 'title',
+                :order => "title ASC",
+                :sortable => false
 
         private
 
