@@ -6,13 +6,9 @@ module Refinery
 
       def show
         @compilation = Compilation.friendly.find(params[:id])
-        @talks = @compilation.talks.order('date ASC').paginate :page => params[:page],
+        @talks = @compilation.talks.order('date ASC').joins(:file).where('file_uid ~* ?', '.mp3').paginate :page => params[:page],
         :per_page => 10
-        @compilation.talks.each do |talk|
-          if File.extname(talk.file.file_uid).downcase == '.zip'
-            @zip = talk
-          end
-        end
+        @zip = @compilation.talks.order('date ASC').joins(:file).where('file_uid ~* ?', '.zip')
       end
 
       protected

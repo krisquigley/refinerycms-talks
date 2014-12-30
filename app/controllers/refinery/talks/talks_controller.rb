@@ -26,7 +26,7 @@ module Refinery
     protected
 
       def find_all_talks
-        @talks = Talk.order('date DESC').paginate :page => params[:page],
+        @talks = Talk.order('date DESC').joins(:file).where('file_uid ~* ?', '.mp3').paginate :page => params[:page],
         :per_page => 10
       end
 

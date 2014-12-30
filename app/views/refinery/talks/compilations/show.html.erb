@@ -10,12 +10,14 @@
   <p class="teacher"><i>by <%= @compilation.teacher.name %></i></p>
   <% if @zip %>
     <div class="sticky-post compilation">
+      <% @zip.each do |zip| %>
        <p>
-        <strong><%= link_to @zip.title, refinery.talks_talk_path(@zip) %></strong>
+        <strong><%= link_to zip.title, refinery.talks_talk_path(zip) %></strong>
       </p>
       <p>
-        <%= raw(@zip.description) %>
+        <%= raw(zip.description) %>
       </p>
+      <% end %>
     </div>
   <% end %>
   <%= render partial: 'refinery/talks/shared/talk', collection: @talks %>
