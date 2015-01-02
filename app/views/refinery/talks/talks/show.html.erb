@@ -10,12 +10,19 @@
   <p class="teacher"><i>by <%= @talk.teacher.name %> on <%= l(@talk.date.to_date, :format => :long) %></i></p>
   <p>
     <% if extension(@talk.file.file_uid).downcase == '.mp3' %>
-      <audio controls>
-        <source src="<%= @talk.file.url %>" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio><br/>
+      <% if ios_device? %>
+        <p>This talk is <a href="itms://itunes.apple.com/us/podcast/aruna-ratanagiri-dhamma-talks/id914576946?mt=2">available in iTunes</a></p>
+      <% else %>
+        <audio controls>
+          <source src="<%= @talk.file.url %>" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio><br/>
+        <%= link_to 'Download Talk', @talk.file.url %>
+      <% end %>
+    <% else %>
+      <%= link_to 'Download Collection', @talk.file.url %>
     <% end %>
-    <%= link_to 'Download Talk', @talk.file.url %>
+    
     </p>
 
   <%=raw @talk.description %>
