@@ -41,7 +41,8 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
           
           seconds = talk.talk_length * 60 % 60
           minutes = talk.talk_length % 60
-          duration = format("%02d:%02d", minutes, seconds)
+          hours = talk.talk_length / 60 % 60
+          duration = format("%02d:%02d:%02d", hours, minutes, seconds)
 
           xml.itunes :duration, duration
         end
