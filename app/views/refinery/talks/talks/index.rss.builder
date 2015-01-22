@@ -27,7 +27,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
       if File.extname(talk.file.file_uid).downcase == '.mp3'
         xml.item do
           link = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}"
-          mp3_url = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}.mp3"
+          mp3_url = "http://ratanagiri.org.uk#{absolute_url(talk)}"
           xml.title "#{talk.teacher.name} - #{talk.title}"
           xml.description talk.description
           xml.pubDate talk.date.to_s(:rfc822)
