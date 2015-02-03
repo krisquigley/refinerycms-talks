@@ -8,7 +8,7 @@
   <h2><%= @compilation.title %></h2>
   <hr/>
   <p class="teacher"><i>by <%= @compilation.teacher.name %></i></p>
-  <% if @zip %>
+  <% if @zip.any? %>
     <div class="sticky-post compilation">
       <% @zip.each do |zip| %>
        <p>
