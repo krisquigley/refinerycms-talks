@@ -14,7 +14,7 @@ module Refinery
       protected
 
       def find_page
-        @page = ::Refinery::Page.where(:link_url => "/teachings/talks").first
+        @page = ::Refinery::Page.where(:link_url => "/teachings/audio").first
       end
     end
   end

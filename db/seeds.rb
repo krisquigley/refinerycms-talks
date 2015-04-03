@@ -7,8 +7,8 @@ Refinery::I18n.frontend_locales.each do |lang|
     )
   end if defined?(Refinery::User)
 
-  Refinery::Page.where(link_url: (url = "/talks")).first_or_create!(
-    title: 'Talks',
+  Refinery::Page.where(link_url: (url = "/teachings/audio")).first_or_create!(
+    title: 'Audio',
     deletable: false,
     menu_match: "^#{url}(\/|\/.+?|)$"
   ) do |page|

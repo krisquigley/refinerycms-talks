@@ -2,7 +2,7 @@ en:
   refinery:
     plugins:
       talks:
-        title: Talks
+        title: Audio
     talks:
       admin:
         talks:
