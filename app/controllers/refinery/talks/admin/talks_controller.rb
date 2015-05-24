@@ -10,7 +10,7 @@ module Refinery
 
         crudify :'refinery/talks/talk',
                 :title_attribute => 'title',
-                :order => "title ASC",
+                :order => "created_at DESC",
                 :sortable => false
 
         private
