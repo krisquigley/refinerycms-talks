@@ -11,7 +11,7 @@
   <%= render partial: 'refinery/talks/shared/talk', collection: @talks %>
   <%= will_paginate @talks %>
   <% if @compilations.any? %>
-    <h3>compilations</h3>
+    <h3>collections</h3>
     <hr/>
     <% @compilations.each do |compilation| %>
       <p><%= link_to compilation.title, refinery.talks_compilation_path(compilation)  %></p>
