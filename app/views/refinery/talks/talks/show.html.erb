@@ -14,9 +14,9 @@
       <%= content_tag :source, '',{ src: absolute_url(@talk), type: 'audio/mpeg' } %>
         Your browser does not support the audio element.
       </audio><br/>
-      <%= link_to 'Download Talk', absolute_url(@talk) %>
+      <%= link_to 'Download Talk', absolute_url(@talk), id: 'talk' %>
     <% else %>
-      <%= link_to 'Download Collection', absolute_url(@talk) %>
+      <%= link_to 'Download Collection', absolute_url(@talk), id: 'collection' %>
     <% end %>
   </p>
 
