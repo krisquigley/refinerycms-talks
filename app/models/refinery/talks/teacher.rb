@@ -9,8 +9,8 @@ module Refinery
 
       validates :name, presence: true, uniqueness: true
 
-      has_many :talks
-      has_many :compilations
+      has_many :talks, dependent: :destroy
+      has_many :compilations, dependent: :destroy
 
       friendly_id :name, :use => [:slugged, :globalize]
     end
