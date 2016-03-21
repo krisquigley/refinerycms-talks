@@ -12,7 +12,7 @@ module Refinery
           TagLib::MPEG::File.open(mp3_file) do |file|
             tag = file.id3v2_tag
 
-            teacher = Refinery::Talks::Teacher.find(options['teacher'])
+            teacher = Refinery::Talks::Teacher.friendly.find(options['teacher'])
 
             # Write basic attributes
             tag.artist = teacher.name
