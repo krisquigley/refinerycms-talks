@@ -24,6 +24,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
     xml.itunes :category, :text => 'Religion &amp; Spirituality'
 
     itunes_talks.each do  |talk|
+      next unless talk.file.present?
       if File.extname(talk.file.file_uid).downcase == '.mp3'
         xml.item do
           link = "http://ratanagiri.org.uk/teachings/talks/#{talk.slug}"
