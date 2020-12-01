@@ -4,6 +4,7 @@ Refinery::Core::Engine.routes.draw do
   namespace :talks, :path => '/teachings/talks' do
     root :to => "talks#index"
     resources :talks, :path => '', :only => [:index, :show] do
+      get :download
       collection do
         resources :teachers, :only => :show
         resources :compilations, :only => :show

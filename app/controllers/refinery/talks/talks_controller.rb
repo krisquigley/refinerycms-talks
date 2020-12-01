@@ -23,6 +23,12 @@ module Refinery
         end
       end
 
+      def download
+        @talk = Talk.friendly.find(params[:talk_id])
+
+        send_data @talk.file, :filename => @talk.file.file_name
+      end
+
     protected
 
       def find_all_talks
