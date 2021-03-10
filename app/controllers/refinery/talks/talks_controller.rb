@@ -1,6 +1,7 @@
 module Refinery
   module Talks
     class TalksController < ::ApplicationController
+      include FileExtensionHelper
 
       before_action :find_all_talks
       before_action :find_all_teachers, only: :index
@@ -26,7 +27,7 @@ module Refinery
       def download
         @talk = Talk.friendly.find(params[:talk_id])
 
-        send_data @talk.file.url, filename: "#{@talk.file.file_name.gsub(/\W+/,'-')}.mp3", type: "audio/mp3"
+        send_data absolute_url(@talk), filename: "#{@talk.file.file_name.gsub(/\W+/,'-')}.mp3", type: "audio/mp3"
       end
 
     protected
