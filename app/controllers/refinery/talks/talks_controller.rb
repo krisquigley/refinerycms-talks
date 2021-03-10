@@ -26,7 +26,7 @@ module Refinery
       def download
         @talk = Talk.friendly.find(params[:talk_id])
 
-        send_data @talk.file, :filename => @talk.file.file_name
+        send_data @talk.file, filename: @talk.file.file_name.gsub(/\W+/,'-'), type: "audio/mp3"
       end
 
     protected
