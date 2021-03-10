@@ -26,8 +26,7 @@ module Refinery
 
       def download
         @talk = Talk.friendly.find(params[:talk_id])
-
-        send_data absolute_url(@talk), filename: "#{@talk.file.file_name.gsub(/\W+/,'-')}.mp3", type: "audio/mp3"
+        send_file "public#{absolute_url(@talk)}", filename: "#{@talk.file.file_name.gsub(/.mp3/i,'').gsub(/\W+/,'-')}.mp3", type: "audio/mp3"
       end
 
     protected
