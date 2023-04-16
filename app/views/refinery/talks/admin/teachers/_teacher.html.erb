@@ -3,11 +3,11 @@
     <%= teacher.name.presence %>
   </span>
   <span class='actions'>
-    <%= link_to refinery_icon_tag("application_edit.png"),
+    <%= link_to '',
                 refinery.edit_talks_admin_teacher_path(teacher),
-                :name => t('.edit') %>
-    <%= link_to refinery_icon_tag("delete.png"), refinery.talks_admin_teacher_path(teacher),
-                :class => "cancel confirm-delete",
+                :name => t('.edit'), class: 'edit_icon' %>
+    <%= link_to '', refinery.talks_admin_teacher_path(teacher),
+                :class => "cancel confirm-delete delete_icon",
                 :title => t('.delete'),
                 :method => :delete,
                 :data => {
